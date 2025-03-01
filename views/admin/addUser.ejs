@@ -1,0 +1,43 @@
+<%- include('../partials/head.ejs') %>
+
+  <body class="bg-secondary">
+    <div class="container d-flex justify-content-center">
+      <form class="add-user mt-5" action="/admin/add-user" method="post">
+        <h1 class="text-center fw-bold text-white">Edit-User</h1>
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row pt-3">
+          <div class="col mb-3">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="form3Example1" name="name" class="form-control name-field" placeholder="Name" required/>
+            </div>
+          </div>
+
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <input type="email" id="form3Example3" name="email" placeholder="Email" class="form-control" required/>
+          </div>
+
+          <!-- Password input -->
+          <div data-mdb-input-init class="form-outline mb-3">
+            <input type="password" id="form3Example4" name="password" placeholder="Password" class="form-control" required/>
+          </div>
+          <% if(msg) {%>
+          <p class="text-danger text-center" id="error"><%= msg %></p>
+          <script>
+            setTimeout(()=>{
+              document.getElementById('error').style.display = 'none';
+            },7000);
+          </script>
+          <% } %>
+
+          <!-- Submit button -->
+          <div data-mdb-input-init class="form-outline mb-3 mt-3 text-center">
+            <button data-mdb-ripple-init type="submit" class="btn btn-primary mb-4 py-2 px-4">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <%- include('../partials/scripts') %>
+  </body>
+
+  </html>

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Oswald:wght@200..700&family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    font-family: "Nunito Sans", serif;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+/* login */
+.login-whole {
+    background: linear-gradient(90deg, rgba(46, 133, 207, 1) 0%, rgba(214, 82, 151, 1) 72%);
+}
+
+.container.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-form {
+    max-width: 20rem;
+    margin: auto;
+    box-shadow: 1px 0px 10px 10px rgba(214, 82, 151, .5);
+    border-radius: .7rem;
+    background: hsla(0, 0%, 100%, 0.466);
+}
+
+.login-input {
+    display: flex;
+    justify-content: space-between;
+    max-width: 14rem;
+    margin: auto;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.login-input input {
+    border: none;
+    background: transparent;
+}
+
+.login-input input:focus {  
+    outline: none;
+}
+
+.login-input:focus-within {
+    border-bottom: 1px solid black;
+}
+
+#eye-icon {
+    cursor: pointer;
+}
+
+.login-form button {
+    background: linear-gradient(90deg, rgba(46, 133, 207, 1) 0%, rgba(214, 82, 151, 1) 72%);
+    border: none;
+    border-radius: 6rem;
+    transition: ease-in-out;
+}
+
+.login-form button:hover {
+    background: linear-gradient(to left, rgba(46, 133, 207, 1) 0%, rgba(214, 82, 151, 1) 72%);
+}
+
+.login-form a {
+    text-decoration: none;
+}
+
+/* home page */
+.home-page {
+    background: url(/images/home.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+.navbar{
+    position: sticky;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.226);
+}
+
+.home-welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

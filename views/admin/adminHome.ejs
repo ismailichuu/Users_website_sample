@@ -14,8 +14,13 @@
 
 <body class="bg-dark">
     <div class="container-fluid mt-5 table">
-        <table class="table table-dark ">
-            <h1 class="text-center mb-5 fs-2 text-white">Available Users</h1>
+        <table class="table table-dark">
+            <div class="top d-flex justify-content-between mb-5">
+                <h1 class="text-center ps-5 fs-2 text-white">Available Users</h1>
+                <form class="d-flex" role="search" action="/admin/logout" method="get">
+                    <button class="btn btn-outline-success" type="submit">Logout</button>
+                </form>
+            </div>
             <thead>
                 <tr>
                     <th scope="col" class="fs-5">id</th>

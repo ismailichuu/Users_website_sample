@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAdminHome, deleteUser, getAddUser, addUser, editUser, handleEditUser, getAdminLogin, handleAdminLogin } from '../controllers/adminController.js';
+import { getAdminHome, deleteUser, getAddUser, addUser, editUser, handleEditUser, getAdminLogin, handleAdminLogin, handleAdminLogout } from '../controllers/adminController.js';
 import { loggerAdmin, sessionCheckAdmin } from '../middleware/adminMiddleware.js';
 
 const router = express.Router();
@@ -28,4 +28,7 @@ router.get('/login',sessionCheckAdmin, getAdminLogin);
 //POST Admin login handle
 router.post('/login', handleAdminLogin);
 
-export default router;
+//Get logout
+router.get('/logout',loggerAdmin, handleAdminLogout);
+
+export default router; 

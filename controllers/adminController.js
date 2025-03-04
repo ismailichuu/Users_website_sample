@@ -104,3 +104,10 @@ export const handleAdminLogin = async(req, res) => {
         res.render('admin/adminLogin',{title: 'admin', msg: error.toString()})
     }
 };
+
+//@desc handle login
+//@route GET /logout
+export const handleAdminLogout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/admin/login');
+};

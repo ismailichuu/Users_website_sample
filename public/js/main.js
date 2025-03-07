@@ -1,3 +1,4 @@
+
 //Password Show icon
 let password = document.getElementById('exampleInputPassword1');
 let eyeIcon = document.getElementById('eye-icon');

@@ -31,6 +31,7 @@
             </thead>
             <tbody>
                 <% users.forEach((user, i)=> {%>
+                    <% if (!user.admin) {%> 
                     <tr>
                         <input type="hidden" value="<%= user._id %>">
                         <th scope="row">
@@ -48,6 +49,7 @@
                                 onclick="deleteUser('<%= user._id %>')">Delete</button>
                         </td>
                     </tr>
+                    <% } %>
                     <% } ) %>
             </tbody>
         </table>

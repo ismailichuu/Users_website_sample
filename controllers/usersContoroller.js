@@ -1,4 +1,4 @@
-import session from "express-session";
+
 import User from "../models/SignupSchema.js";
 import bcrypt from 'bcrypt';
 
@@ -11,7 +11,10 @@ export const getHomePage = (req, res) => {
 //@desc getLogin page
 //@route GET /login
 export const getLogin = (req, res) => {
-    res.render('user/login', { msg: null });
+    console.log(req.session.err);
+    const logInErr = req.session.err || null;
+    req.session.err = null;
+    res.render('user/login', { msg: logInErr });
 };
 
 //@desc Handle Login
@@ -28,14 +31,17 @@ export const handleLogin = async (req, res) => {
         req.session.user = email;
         res.redirect('/');
     } catch (error) {
-        res.render('user/login', { msg: error });
+        req.session.err = error;
+        res.redirect('/login');
     }
 };
 
 //@desc getSignup
 //@route GET /signup
 export const getSignup = (req, res) => {
-    res.render('user/signup', { msg: null });
+    const signUpErr = req.session.err || null;
+    req.session.err = null;
+    res.render('user/signup', { msg: signUpErr });
 };
 
 //@desc Signup handling
@@ -69,7 +75,8 @@ export const handleSignup = async (req, res) => {
         res.redirect('/');
     } catch (error) {
         console.log(error);
-        res.render('user/signup', { msg: error.toString() });
+        req.session.err = error.toString();
+        res.redirect('/signup');
     };
 };
 

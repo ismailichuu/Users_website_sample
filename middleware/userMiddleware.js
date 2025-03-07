@@ -8,6 +8,7 @@ export const logger = (req, res, next) => {
 
 //PreventLogin relogin
 export const sessionCheck = (req, res, next) => {
+
     if(req.session.user){
         return res.redirect('/');
     };

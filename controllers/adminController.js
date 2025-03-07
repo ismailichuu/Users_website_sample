@@ -85,7 +85,9 @@ export const handleEditUser = async (req, res) => {
 //@desc Get admin Login
 //@route GET /admin/login
 export const getAdminLogin = (req, res) => {
-    res.render('admin/adminLogin',{title:'Admin', msg: null});
+    const logInErr = req.session.err || null ;
+    req.session.user = null;
+    res.render('admin/adminLogin',{title:'Admin', msg: logInErr});
 };
 
 //@desc handle admin login
@@ -101,7 +103,8 @@ export const handleAdminLogin = async(req, res) => {
         req.session.admin = email;
         res.redirect('/admin');
     } catch (error) {
-        res.render('admin/adminLogin',{title: 'admin', msg: error.toString()})
+        req.session.err = error.toString();
+        res.redirect('/admin/login');
     }
 };
 

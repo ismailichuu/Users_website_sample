@@ -4,7 +4,7 @@ const mongoString = process.env.MONGOSTRING;
 
 
 const mongoConnect = () => {
-    mongoose.connect(mongoString)
+    return mongoose.connect(mongoString)
     .then(()=>{
         console.log('Database Connected Successfully');
     })

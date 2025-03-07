@@ -44,8 +44,7 @@ app.use('/admin',adminRouter);
 //route
 app.use(router);
 
-//mongo
-mongoConnect();
-
 //listen
-app.listen(port, () => console.log("Server running at", port));
+mongoConnect().then(() => {
+    app.listen(port, () => console.log("Server running at", port))
+});

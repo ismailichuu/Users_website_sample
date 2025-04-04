@@ -26,9 +26,11 @@ router.post('/edit-user', handleEditUser);
 router.get('/login',sessionCheckAdmin, getAdminLogin);
 
 //POST Admin login handle
-router.post('/login', handleAdminLogin);
+router.post('/login',sessionCheckAdmin, handleAdminLogin);
 
 //Get logout
 router.get('/logout',loggerAdmin, handleAdminLogout);
 
-export default router; 
+export default router;
+
+

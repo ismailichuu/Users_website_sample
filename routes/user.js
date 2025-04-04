@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { json } from 'express';
 import { getHomePage, getLogin, getSignup, handleLogin, handleLogout, handleSignup } from '../controllers/usersContoroller.js';
 import { logger, sessionCheck } from '../middleware/userMiddleware.js';
 
@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/login', sessionCheck, getLogin);
 
 //POST Login
-router.post('/login', handleLogin);
+router.post('/login', sessionCheck,handleLogin);
 
 //GET Home Page
 router.get('/', logger, getHomePage);
@@ -17,7 +17,7 @@ router.get('/', logger, getHomePage);
 router.get('/signup', sessionCheck, getSignup);
 
 //POST Signup
-router.post('/signup', handleSignup);
+router.post('/signup',sessionCheck, handleSignup);
 
 //GET Logout
 router.get('/logout', handleLogout);
